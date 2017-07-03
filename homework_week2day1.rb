@@ -32,17 +32,23 @@ end
 
 
 class Team
-  attr_accessor(:country, :player, :position, :coach)
+  attr_accessor(:country, :player, :position, :coach, :points)
 
-  def initialize(country, player, position, coach)
+  def initialize(country, players, coach)
     @country = country
-    @player = player
-    @position = position
+    @players = players
     @coach = coach
+    @points = 0
   end
 
-  def player
-    return @player
+  def add_player(player)
+    @players.push(player)
+  end
+
+  def win_or_lose(win_or_lose)
+    if win_or_lose == true
+      @points += 3
+    end
   end
 
 end

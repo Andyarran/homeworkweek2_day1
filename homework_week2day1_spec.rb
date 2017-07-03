@@ -26,8 +26,8 @@ end
 class TestTeam < MiniTest::Test
 
 def setup
-  @player_1 = Team.new("England", "Joe Hart", "Goalkeeper", "Gareth Southgate" )
-  @player_2 = Team.new("England", "Harry Kane", "Striker", "Gareth Southgate" )
+  @player_1 = Team.new("England", ["Joe Hart"], 10  )
+  @player_2 = Team.new("Scotland", ["Harry Kane"], 6 )
 end
 
 def test_country
@@ -37,4 +37,11 @@ end
 def test_name
   assert_equal("Joe Hart", @player_1.get_player)
 end
+
+def test_points
+  assert_equal(13, @player_1.points)
+  assert_equal(7, @player_2.points)
+end
+
+
 end
